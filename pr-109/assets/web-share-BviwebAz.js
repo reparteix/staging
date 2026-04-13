@@ -1,0 +1,1 @@
+function e(){return typeof navigator<`u`&&typeof navigator.share==`function`}async function t(t){return e()?(await navigator.share(t),{method:`native-share`}):(await navigator.clipboard.writeText(t.url),{method:`clipboard`})}export{t};
