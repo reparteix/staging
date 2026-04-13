@@ -1,0 +1,1 @@
+function e(){return typeof navigator<`u`&&typeof navigator.share==`function`}function t(e){return e instanceof DOMException&&e.name===`AbortError`}async function n(n){if(e())try{return await navigator.share(n),{method:`native-share`}}catch(e){if(t(e))return{method:`cancelled`};throw e}return await navigator.clipboard.writeText(n.url),{method:`clipboard`}}export{n as t};
