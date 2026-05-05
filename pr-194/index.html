@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/pr-194/favicon.svg" />
+    <link rel="apple-touch-icon" href="/pr-194/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#171717" media="(prefers-color-scheme: dark)" />
+    <meta name="description" content="Aplicació de repartiment de despeses — local-first i 100% offline" />
+    <script>
+      (() => {
+        const storageKey = 'reparteix-theme'
+        const darkQuery = '(prefers-color-scheme: dark)'
+        let theme = 'system'
+
+        try {
+          const stored = localStorage.getItem(storageKey)
+          if (stored === 'light' || stored === 'dark' || stored === 'system') theme = stored
+        } catch {
+          // localStorage unavailable
+        }
+
+        const prefersDark = window.matchMedia?.(darkQuery).matches ?? false
+        const resolved = theme === 'system' ? (prefersDark ? 'dark' : 'light') : theme
+        document.documentElement.classList.toggle('dark', resolved === 'dark')
+      })()
+    </script>
+    <style>
+      :root {
+        color-scheme: light;
+        background: #ffffff;
+      }
+
+      :root.dark {
+        color-scheme: dark;
+        background: #171717;
+      }
+
+      body {
+        background: #ffffff;
+      }
+
+      :root.dark body {
+        background: #171717;
+      }
+    </style>
+    <title>Reparteix</title>
+    <script type="module" crossorigin src="/pr-194/assets/index-DsXOiaiz.js"></script>
+    <link rel="modulepreload" crossorigin href="/pr-194/assets/chunk-DECur_0Z.js">
+    <link rel="modulepreload" crossorigin href="/pr-194/assets/device-identity-DHYEFg4e.js">
+    <link rel="stylesheet" crossorigin href="/pr-194/assets/index-DsPmHtLI.css">
+  <link rel="manifest" href="/pr-194/manifest.webmanifest"></head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
